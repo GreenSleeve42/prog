@@ -6,14 +6,16 @@ barvp = (36, 200, 42)
 
 polohax = 500
 
-polohay = 700
+polohay = 100
 
-rychlostx = 0
+rychlostx = 10
 
 polomer = 30
 
-rychlosty = -r.randint(10, 100)
+rychlosty =  r.randint(3, 10)
+zrychlenix = 0 #r.randint(1, 5) 
 
+zrychleniy = r.randint(1, 5)
 
 cask = 0
 
@@ -46,40 +48,38 @@ while jedunaledu:
             jedunaledu = False
     
     p.draw.circle(obr,(3, 67, 124),(polohax, polohay),30)
-    if polohax >= 0:
-
-        polohax = polohax + rychlostx
-    rychlostx = rychlostx -0
-    rychlosty = rychlosty -0.01
 
     if polohay >= 0:
-    
         polohay = polohay + rychlosty
     else:
         polohay = 0
-        rychlosty = -rychlosty + 100
-
-    if polohay > vyska:
-        polohay = vyska
-        rychlosty = -rychlosty -100
-
-    if polohay >= polomer:
-        polohay = polohay + rychlosty
-    else:
-        polohay = polomer
-        rychlosty = -rychlosty   
+        rychlosty = -rychlosty 
 
     if polohay > vyska - polomer:
         polohay = vyska - polomer
-        rychlosty = - rychlosty
+        rychlosty = -rychlosty
+        rn = (r.random() - 0.5) * rychlosty   
+        rychlostx = rn 
+        print(rn)
 
+    if polohax >= polomer:
+        polohax = polohax + rychlostx
+    else:
+        polohax = polomer
+        rychlostx = -rychlostx  
 
+    if polohax > sirka - polomer:
+        polohax = sirka - polomer
+        rychlostx = -rychlostx
 
+    rychlosty = rychlosty + zrychleniy
+    rychlostx = rychlostx + zrychlenix
 
-
+    if rychlostx >= 10:
+        p.draw.circle
 
     cask = t.monotonic()
-    t.sleep(dobasnimku - (cask - cas))
+    t.sleep(max(0., dobasnimku - (cask - cas)))
     cask = t.monotonic()
 
-    print((cask - cas) * 1000)
+    #print((cask - cas) * 1000)
