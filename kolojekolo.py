@@ -32,6 +32,6 @@ while mojecislo != cislo:
 
 cask = t.monotonic()
 
-print(f"no hura, cislo je opravdu {cislo}")
+print(f"no huraaa, cislo je opravdu {cislo}")
 print(f"tvuj pocet pokusu je {pok}. tvuj pocet moc velkych odhadu byl {mocpoc} a tvuj pocet moc malych obhadu byl {pok - mocpoc}.")
 print(f'tvuj cas byl {cask - cas:4.3f} sekund')
